@@ -1,0 +1,21 @@
+<!-- login_restaurant_owner.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お店 ログイン</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>お店 ログイン</h2>
+        <form method="POST" action="{{ url_for('login_restaurant_owner') }}">
+            {{ form.hidden_tag() }}
+            {{ form.email.label }}{{ form.email(size=32) }}<br>
+            {{ form.password.label }}{{ form.password(size=32) }}<br>
+            {{ form.submit(class_='btn btn-primary') }}
+        </form>
+    </div>
+</body>
+</html>

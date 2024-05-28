@@ -1,0 +1,28 @@
+<!-- signup_restaurant_owner.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お店を新規登録する</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>お店を新規登録する</h2>
+        <form method="POST" action="{{ url_for('signup_restaurant_owner') }}">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }}{{ form.name(size=32) }}<br>
+            {{ form.description.label }}{{ form.description(size=64) }}<br>
+            {{ form.address.label }}{{ form.address(size=64) }}<br>
+            {{ form.email.label }}{{ form.email(size=32) }}<br>
+            {{ form.password.label }}{{ form.password(size=32) }}<br>
+            {{ form.confirm_password.label }}{{ form.confirm_password(size=32) }}<br>
+            {{ form.submit() }}
+        </form>
+        <div>
+            <a href="{{ url_for('login_restaurant_owner') }}" class="btn btn-link">ログイン</a>
+        </div>
+    </div>
+</body>
+</html>

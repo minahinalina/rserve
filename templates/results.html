@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空いている飲食店</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>空いている飲食店</h2>
+        {% if restaurants %}
+            <ul>
+                {% for restaurant in restaurants %}
+                    <li>{{ restaurant.name }} - {{ restaurant.address }} (空席: {{ restaurant.available_seats }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>空いている飲食店が見つかりませんでした。</p>
+        {% endif %}
+    </div>
+</body>
+</html>

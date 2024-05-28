@@ -1,0 +1,23 @@
+<!-- add_vacancy.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vacancy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Add Vacancy</h2>
+        <form method="POST" action="{{ url_for('add_vacancy') }}">
+            {{ form.hidden_tag() }}
+            {{ form.counter_seats.label }}{{ form.counter_seats() }}<br>
+            {{ form.table_seats.label }}{{ form.table_seats() }}<br>
+            {{ form.private_rooms.label }}{{ form.private_rooms() }}<br>
+            {{ form.availability_time.label }}{{ form.availability_time() }}<br>
+            {{ form.submit() }}
+        </form>
+    </div>
+</body>
+</html>

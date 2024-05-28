@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウント作成</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .error-message {
+            display: none;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>アカウント作成</h2>
+        <form method="POST" action="{{ url_for('signup_user') }}">
+            {{ form.hidden_tag() }}
+            <div>
+                <label for="last_name">姓</label>
+                {{ form.last_name }}
+                {% if form.last_name.errors %}
+                    <div class="error-message">{{ form.last_name.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="first_name">名</label>
+                {{ form.first_name }}
+                {% if form.first_name.errors %}
+                    <div class="error-message">{{ form.first_name.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="email">メール</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error-message">{{ form.email.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="password">パスワード</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="error-message">{{ form.password.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <label for="confirm_password">パスワード確認</label>
+                {{ form.confirm_password }}
+                {% if form.confirm_password.errors %}
+                    <div class="error-message">{{ form.confirm_password.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">アカウント作成</button>
+        </form>
+        <a href="{{ url_for('login_user') }}">ログイン</a>
+        {% if error_message %}
+            <div class="error-message" style="display: block;">{{ error_message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

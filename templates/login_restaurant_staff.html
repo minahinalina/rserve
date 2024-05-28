@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レストランスタッフログイン</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>レストランスタッフログイン</h1>
+        <form action="{{ url_for('login_restaurant_staff') }}" method="post">
+            <div class="form-group">
+                <label for="code">レストランコード:</label>
+                <input type="text" id="code" name="code" required size="32">
+            </div>
+            <button type="submit">ログイン</button>
+        </form>
+    </div>
+</body>
+</html>

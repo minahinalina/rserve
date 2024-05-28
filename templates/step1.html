@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約の詳細を入力してください</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>予約の詳細を入力してください</h2>
+        <form method="POST" action="{{ url_for('step1') }}">
+            {{ form.hidden_tag() }}
+            <div>
+                <label for="num_people">人数</label>
+                {{ form.num_people }}
+            </div>
+            <div>
+                <label for="time">時間</label>
+                <div>{{ current_date }}</div>
+                {{ form.time }}
+            </div>
+            <div>
+                <label for="auto_location">位置情報自動入力</label>
+                {{ form.auto_location }}
+            </div>
+            <button type="submit" class="btn btn-primary">空いている飲食店を探す</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- restaurant_registration_or_login.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲食店の登録</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>飲食店の登録</h2>
+        <div>
+            <a href="{{ url_for('signup_restaurant_owner') }}" class="btn btn-primary">飲食店を新規登録する</a>
+        </div>
+        <div>
+            <a href="{{ url_for('login_restaurant_owner') }}" class="btn btn-primary">ログイン</a>
+        </div>
+    </div>
+</body>
+</html>

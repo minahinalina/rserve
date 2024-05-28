@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザーログイン</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ユーザーログイン</h1>
+        <form action="{{ url_for('login_user') }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.email.label }} (メール)
+                {{ form.email(size=32) }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }} (パスワード)
+                {{ form.password(size=32) }}
+            </div>
+            <button type="submit">{{ form.submit() }}</button>
+        </form>
+        <a href="{{ url_for('signup_user') }}">登録</a>
+    </div>
+</body>
+</html>
